@@ -3,7 +3,9 @@ let domHoliday, domLanden;
 let ms = 1000;
 const landen = { Belgium: 'BE', France: 'FR' };
 
-//#region ***********  Callback - HTML Generation (After select) ***********
+// TO DO: formvalidation --> errormessage bij buttonklik
+
+// #region ***********  Callback - HTML Generation (After select) ***********
 // show________
 
 const ShowLanden = function() {
@@ -45,14 +47,14 @@ const showHolidays = function(data) {
 </div>`;
 	}
 	domHoliday.innerHTML = html;
-	//domHoliday.classList.add(movecard);
+	// domHoliday.classList.add(movecard);
 };
 
 const ShowColor = function(typeHoliday) {
 	switch (typeHoliday) {
 		case 'National holiday':
 			return 'u-blue';
-		//domHoliday.classList.add("u-blue");
+		// domHoliday.classList.add("u-blue");
 
 		case 'Observance':
 			return 'u-green';
@@ -69,13 +71,13 @@ const ShowDescription = function(description) {
 	else return 'No description available.';
 };
 
-//#region ***********  Data Access ***********
+// #region ***********  Data Access ***********
 // get_______
 const getHolidays = function(landcode) {
-	handleData(`https://calendarific.com/api/v2/holidays?&api_key=b3e6a4f70d437e93c69279127448d1e29e385ebb&country=${landcode}}&year=2019`, showHolidays);
+	handleData(`https://calendarific.com/api/v2/holidays?&api_key=b3e6a4f70d437e93c69279127448d1e29e385ebb&country=${landcode}&year=2019`, showHolidays);
 };
 
-//#region ***********  Event Listeners ***********
+// #region ***********  Event Listeners ***********
 // listenTo________________
 
 const listenToSelect = function() {
@@ -91,10 +93,10 @@ const listenToSelect = function() {
 
 const init = function() {
 	console.log('dom loaded');
-	//queryselectors ophalen
+	// queryselectors ophalen
 	domHoliday = document.querySelector('.js-holiday');
 	domLanden = document.querySelector('.js-landen');
-	//aanroepen functie om data op te halen
+	// aanroepen functie om data op te halen
 	// getHolidays();
 	ShowLanden();
 };
