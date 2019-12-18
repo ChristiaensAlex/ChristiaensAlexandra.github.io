@@ -941,7 +941,7 @@ body {
 	display: grid;
 	grid-template-rows: 80 1fr;
 	grid-gap: var(--global-whitespace-md);
-	padding: var(--global-whitespace-sm);
+	padding: var(--global-whitespace-md);
 
 	border-radius: var(--global-borderRadius);
 	background-color: var(--info-backgroundcolor, var(--global-color-neutral-xxxxx-light));
@@ -958,12 +958,8 @@ body {
 	text-align: center;
 	padding-bottom: var(--global-whitespace-sm);
 }
+
 @media (min-width: 576px) {
-	.c-info {
-		padding: var(--global-whitespace-md);
-	}
-}
-@media (min-width: 768px) {
 	.c-info {
 		padding: var(--global-whitespace);
 	}
@@ -1034,6 +1030,7 @@ body {
 	grid-row-gap: var(--global-whitespace-sm);
 	grid-column-gap: var(--global-whitespace-md);
 	justify-content: center;
+	align-items: center;
 }
 .c-box {
 	width: 16px;
