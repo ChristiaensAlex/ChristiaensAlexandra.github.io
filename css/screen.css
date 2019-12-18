@@ -941,7 +941,7 @@ body {
 	display: grid;
 	grid-template-rows: 80 1fr;
 	grid-gap: var(--global-whitespace-md);
-	padding: var(--global-whitespace);
+	padding: var(--global-whitespace-sm);
 
 	border-radius: var(--global-borderRadius);
 	background-color: var(--info-backgroundcolor, var(--global-color-neutral-xxxxx-light));
@@ -957,6 +957,16 @@ body {
 	line-height: calc(var(--global-baseline) * 3);
 	text-align: center;
 	padding-bottom: var(--global-whitespace-sm);
+}
+@media (min-width: 576px) {
+	.c-info {
+		padding: var(--global-whitespace-md);
+	}
+}
+@media (min-width: 768px) {
+	.c-info {
+		padding: var(--global-whitespace);
+	}
 }
 @media (prefers-color-scheme: dark) {
 	.c-info {
@@ -1009,7 +1019,6 @@ body {
     Everything related to legend
 */
 .c-legend {
-	padding: var(--global-whitespace);
 }
 .c-legend__title {
 	font-size: var(--global-fontsize-md);
@@ -1022,9 +1031,9 @@ body {
 	display: grid;
 	grid-template-columns: 16px 1fr;
 	grid-template-rows: repeat(3, 24px 1fr);
-	grid-gap: var(--global-whitespace-md);
+	grid-row-gap: var(--global-whitespace-sm);
+	grid-column-gap: var(--global-whitespace-md);
 	justify-content: center;
-	align-items: center;
 }
 .c-box {
 	width: 16px;
@@ -1039,7 +1048,7 @@ body {
 	align-items: center;
 }
 
-.c-info .c-legend__text2 {
+.c-info .c-legend__description {
 	grid-column: span 2;
 }
 
@@ -1047,8 +1056,9 @@ body {
 	.c-legend__body {
 		grid-template-columns: 16px 160px 1fr;
 		grid-template-rows: repeat(3, 1fr);
+		grid-gap: var(--global-whitespace-md);
 	}
-	.c-info .c-legend__text2 {
+	.c-info .c-legend__description {
 		grid-column: span 1;
 	}
 }
@@ -1437,7 +1447,6 @@ body {
 
 @media (prefers-color-scheme: dark) {
 	.s-has-error {
-		
 		--input-border: 3px solid var(--global-color-error);
 	}
 }
