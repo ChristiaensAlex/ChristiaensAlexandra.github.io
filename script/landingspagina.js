@@ -33,33 +33,33 @@ const doubleCheckEmailAddress = function() {
 	}
 };
 
-const ListenToFocus = function(label, input, errormessage, field) {
-	input.addEventListener('focus', function() {
+const ListenToFocus = function() {
+	mailInput.addEventListener('focus', function() {
 		console.log('we zijn gefocused');
-		if (!isValidEmailAddress(input.value)) {
-			if (isEmpty(input.value)) {
+		if (!isValidEmailAddress(mailInput.value)) {
+			if (isEmpty(mailInput.value)) {
 				mailErrorMessage.innerText = 'This field is required.';
 			} else {
-				console.log(input.value);
+				console.log(mailInput.value);
 				mailErrorMessage.innerText = 'Invalid emailaddress.';
 			}
 			addErrors();
-			input.addEventListener('input', doubleCheckEmailAddress);
+			mailInput.addEventListener('input', doubleCheckEmailAddress);
 		}
 	});
-	input.addEventListener('blur', function() {
+	mailInput.addEventListener('blur', function() {
 		console.log('we zijn ontfocused');
-		if (!isValidEmailAddress(input.value)) {
-			if (isEmpty(input.value)) {
+		if (!isValidEmailAddress(mailInput.value)) {
+			if (isEmpty(mailInput.value)) {
 				mailErrorMessage.innerText = 'This field is required.';
 			} else {
-				console.log(input.value);
+				console.log(mailInput.value);
 				mailErrorMessage.innerText = 'Invalid emailaddress.';
 			}
 			addErrors();
 
 			// Gebruik een named function (doubleChecEmailAdress), om die er weer af te kunnen halen. Dit vermijd ook het dubbel toevoegen ervan.
-			input.addEventListener('input', doubleCheckEmailAddress);
+			mailInput.addEventListener('input', doubleCheckEmailAddress);
 		}
 	});
 };
@@ -88,7 +88,7 @@ const GetDomElements = function() {
 	submitButton = document.querySelector('.js-button');
 	console.log(mailField, mailLabel, mailInput, mailErrorMessage);
 
-	ListenToFocus(mailLabel, mailInput, mailErrorMessage, mailField);
+	ListenToFocus();
 	ListenToButton(submitButton);
 };
 

@@ -23,11 +23,11 @@
 	--global-color-alpha-light-x: #bdc1ff;
 	--global-color-alpha-light: #a3a8ff;
 	--global-color-alpha: #858bf7;
-	--global-color-alpha-dark: #5258d1;
-	--global-color-alpha-dark-x: #292fab;
-	--global-color-alpha-dark-xx: #0c1285;
+	--global-color-alpha-dark: #464bb3;
+	--global-color-alpha-dark-x: #1f2380;
+	--global-color-alpha-dark-xx: #070a4d;
 
-	--global-color-alpha-dark-x-transparent: #292fab80;
+	--global-color-alpha-dark-x-transparent: #1f238080;
 
 	--global-color-beta: #81cabf;
 	--global-color-omega: #2ac6d8;
@@ -519,7 +519,7 @@ body {
 @media (prefers-color-scheme: dark) {
 	.o-header {
 		color: var(--global-color-neutral-xx-light);
-		background-color: var(--global-color-alpha-dark-x);
+		background-color: var(--global-color-alpha-dark-xx);
 	}
 }
 /*
@@ -552,7 +552,7 @@ body {
 }
 @media (prefers-color-scheme: dark) {
 	.o-footer {
-		background-color: var(--global-color-alpha-dark-x);
+		background-color: var(--global-color-alpha-dark-xx);
 	}
 }
 
@@ -577,7 +577,7 @@ body {
 }
 .c-logo__naam {
 	margin-left: var(--global-whitespace-sm);
-	color: var(--global-color-alpha-dark-xx);
+	color: var(--global-color-alpha-dark-x);
 }
 .o-header .c-logo__symbol {
 	height: 40px;
@@ -662,6 +662,24 @@ body {
 	align-items: center;
 }
 
+@media (min-width: 768px) {
+	.c-form {
+		display: flex;
+		justify-content: space-between;
+	}
+	.c-button-wrapper {
+		justify-content: flex-end;
+		margin-bottom: 0;
+	}
+	.c-form-field {
+		margin-right: var(--global-baseline);
+	}
+}
+@media (min-width: 992px) {
+	.c-form-field {
+		margin-right: var(--global-whitespace-md);
+	}
+}
 /*
     Component: Label
     ---
@@ -676,6 +694,11 @@ body {
 	color: var(--label-color, var(--global-color-neutral-xx-dark));
 	display: flex;
 	justify-content: space-between;
+}
+@media (prefers-color-scheme: dark) {
+	.c-label {
+		--label-color: var(--global-color-alpha-light);
+	}
 }
 
 /*
@@ -711,6 +734,16 @@ body {
 .c-input:focus::placeholder {
 	opacity: 0;
 }
+
+@media (prefers-color-scheme: dark) {
+	.c-input:hover {
+		--input-hover-boxShadow: 0 0 0 3px var(--global-color-alpha);
+	}
+	.c-input:focus,
+	.c-input:active {
+		--input-focus-boxShadow: 0 0 4px 4px var(--global-color-alpha-light), 0 0 2px 2px var(--global-color-alpha);
+	}
+}
 /*
     Component: Custom button
     ---
@@ -725,12 +758,12 @@ body {
 .c-button {
 	font-weight: 600;
 	border-radius: var(--global-borderRadius);
-	/* border: var(--global-borderWidth) solid var(--global-color-alpha-dark); */
+
 	background-color: var(--global-color-neutral-xxxxx-light);
 	color: var(--global-color-alpha);
 
 	padding: calc(var(--global-baseline) * 1.5) var(--global-whitespace-sm);
-	/* padding: 4px; */
+
 	line-height: calc(var(--global-baseline) * 3);
 	margin-top: var(--global-whitespace-xs);
 	outline: none;
@@ -738,44 +771,48 @@ body {
 }
 
 .c-button:hover {
-	background-color: var(--global-color-alpha-light-x);
+	background-color: var(--button-hover-backgroundcolor, var(--global-color-alpha-light-x));
 	color: var(--global-color-alpha-dark-x);
-	box-shadow: 0 0 0 2px var(--global-color-alpha-dark-x);
+	box-shadow: var(--button-hover-boxShadow, 0 0 0 2px var(--global-color-alpha-dark-x));
 }
 
 .c-button:focus {
 	color: var(--global-color-alpha-dark-x);
-	box-shadow: 0 0 0 3px var(--global-color-alpha-dark-x-transparent), 0 0 0 1px var(--global-color-alpha-dark-x);
+	box-shadow: var(--button-focus-boxShadow, 0 0 0 3px var(--global-color-alpha-dark-x-transparent), 0 0 0 1px var(--global-color-alpha-dark-x));
 }
 
 .c-button:active {
-	background-color: var(--global-color-alpha-dark-x);
+	background-color: var(--button-active-backgroundcolor, var(--global-color-alpha-dark-x));
 	box-shadow: none;
 	color: var(--global-color-neutral-xxxx-light);
 }
 
 @media (min-width: 768px) {
-	.c-form {
-		display: flex;
-		justify-content: space-between;
-	}
 	.c-button-wrapper {
 		justify-content: flex-end;
 		margin-bottom: 0;
 	}
-	.c-form-field {
-		margin-right: var(--global-baseline);
-	}
 }
-@media (min-width: 992px) {
-	.c-form-field {
-		margin-right: var(--global-whitespace-md);
-	}
-}
-
 @media (prefers-color-scheme: dark) {
-	.c-label {
-		--label-color: var(--global-color-alpha-light);
+	.c-button {
+		color: var(--global-color-alpha-dark-xx);
+	}
+	.c-button:hover {
+		--button-hover-backgroundcolor: var(--global-color-neutral-xxxxx-light);
+		color: var(--global-color-alpha-dark-x);
+		--button-hover-boxShadow: 0 0 0 3px var(--global-color-alpha);
+	}
+
+	.c-button:focus {
+		color: var(--global-color-alpha-dark-x);
+
+		--button-focus-boxShadow: 0 0 4px 4px var(--global-color-alpha-light), 0 0 2px 2px var(--global-color-alpha);
+	}
+
+	.c-button:active {
+		--button-active-backgroundcolor: var(--global-color-alpha);
+		box-shadow: none;
+		color: var(--global-color-neutral-xxxx-light);
 	}
 }
 
@@ -1394,8 +1431,15 @@ body {
 .s-has-error {
 	--label-color: var(--global-color-error);
 	--input-border: var(--global-borderWidth) solid var(--global-color-error);
-	--input-hover-boxShadow: 0 0 0 3px var(--global-input-error-boxShadowColor);
+	--input-hover-boxShadow: 0 0 3px 3px var(--global-input-error-boxShadowColor);
 	--input-focus-boxShadow: 0 0 0 3px var(--global-input-error-boxShadowColor);
+}
+
+@media (prefers-color-scheme: dark) {
+	.s-has-error {
+		
+		--input-border: 3px solid var(--global-color-error);
+	}
 }
 
 .u-hide {
