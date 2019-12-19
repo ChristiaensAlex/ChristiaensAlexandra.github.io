@@ -1,7 +1,7 @@
 'use strict';
 let domHoliday, domLanden;
 let ms = 1000;
-const landen = { Belgium: 'BE', France: 'FR' };
+const landen = { Belgium: 'BE', France: 'FR', 'United States': 'US', Japan: 'JP' };
 
 // TO DO: formvalidation --> errormessage bij buttonklik
 
@@ -97,7 +97,7 @@ const init = function() {
 	domHoliday = document.querySelector('.js-holiday');
 	domLanden = document.querySelector('.js-landen');
 	// aanroepen functie om data op te halen
-	// getHolidays();
+	getHolidays(landen['Belgium']);
 	ShowLanden();
 };
 document.addEventListener('DOMContentLoaded', init);

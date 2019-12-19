@@ -55,80 +55,79 @@
 	</head>
 
 	<body>
-		<div class="o-content">
+		<div class="o-pagecontainer">
 			<header class="o-header ">
 				<h1 class="c-logo">
 					<svg class="c-logo__symbol"><use xlink:href="#logo_fastis"></use></svg>
 					<div class="c-logo__naam">Fastis</div>
 				</h1>
 			</header>
+			<div class="o-content">
+				<section class="o-row">
+					<div class="o-container">
+						<div class="c-info">
+							<p class="c-form-field">
+								<label class="c-label" for="select1">
+									Select a country to see all of its holidays
+								</label>
+								<span class="c-custom-select">
+									<select class="c-input c-custom-select__input js-landen" name="select1" id="select1">
+										<option value="volvo">Belgium</option>
+										<option value="saab">United States of America</option>
+										<option value="mercedes">France</option>
+										<option value="audi">Sweden</option>
+									</select>
+									<svg class="c-custom-select__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+										<path d="M7,10l5,5,5-5Z" />
+									</svg>
+								</span>
+							</p>
 
-			<section class="o-row">
-				<div class="o-container">
-					<div class="c-info">
-						<p class="c-form-field">
-							<label class="c-label" for="select1">
-								Select a country to see all of its holidays
-							</label>
-							<span class="c-custom-select">
-								<select class="c-input c-custom-select__input js-landen" name="select1" id="select1">
-									<option value="volvo">Belgium</option>
-									<option value="saab">United States of America</option>
-									<option value="mercedes">France</option>
-									<option value="audi">Sweden</option>
-								</select>
-								<svg class="c-custom-select__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-									<path d="M7,10l5,5,5-5Z" />
-								</svg>
-							</span>
-						</p>
-
-						<div class="c-legend">
-							<div class="c-legend__title">Legend</div>
-							<div class="c-legend__body">
-								<div class=" c-box u-blue"></div>
-								<div class="c-legend__holidayType">National Holiday</div>
-								<div class="c-legend__description">Most businesses and institutions are closed.</div>
-								<div class=" c-box u-green"></div>
-								<div class="c-legend__holidayType">Observance Holiday</div>
-								<div class="c-legend__description">Celebrated privately. No effect on businesses.</div>
-								<div class=" c-box u-red"></div>
-								<div class="c-legend__holidayType">Other</div>
-								<div class="c-legend__description">No known specific celebrations.</div>
+							<div class="c-legend">
+								<div class="c-legend__title">Legend</div>
+								<div class="c-legend__body">
+									<div class=" c-box u-blue"></div>
+									<div class="c-legend__holidayType">National Holiday</div>
+									<div class="c-legend__description">Most businesses and institutions are closed.</div>
+									<div class=" c-box u-green"></div>
+									<div class="c-legend__holidayType">Observance Holiday</div>
+									<div class="c-legend__description">Celebrated privately. No effect on businesses.</div>
+									<div class=" c-box u-red"></div>
+									<div class="c-legend__holidayType">Other</div>
+									<div class="c-legend__description">No known specific celebrations.</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<section class="o-row">
-				<div class="o-container">
-					<div class=" js-holiday fadeIn">
-						<div class="c-holiday u-blue moveit" style="animation: move 0.5s;">
+				<section class="o-row">
+					<div class="o-container">
+						<div class=" js-holiday ">
+							<!-- <div class="c-holiday u-blue moveit" style="animation: move 0.5s;">
 							<div class="c-holiday__date js-date">01-01-2019</div>
 							<div class=" c-holiday__name js-name">Nieuwjaar</div>
 							<div class="c-holiday__description js-description">eerste dag van het jaar vullingstekst om het langer te maken meer vulling want het moet minstens 2 lijntjes zijn als het de breedste view is</div>
 
-							<!-- <div class="c-holiday-type js-typeHoliday">National holiday</div> -->
+							
 						</div>
 
 						<div class="c-holiday u-green moveit" style="animation: move 2s;">
 							<div class="c-holiday__date js-date">01-01-2019</div>
 							<div class=" c-holiday__name js-name">Pasen</div>
 							<div class="c-holiday__description js-description">eerste dag van het jaar</div>
-							<!-- <div class="c-holiday-type js-typeHoliday">National holiday</div> -->
+							
 						</div>
 						<div class="c-holiday u-red moveit" style="animation: move 4s;">
 							<div class="c-holiday__date js-date">01-01-2019</div>
 							<div class=" c-holiday__name js-name">Daylight savings</div>
 							<div class="c-holiday__description js-description">eerste dag van het jaar</div>
-							<!-- <div class="c-holiday-date js-date">01-01-2019</div>
-						<div class="c-holiday-type js-typeHoliday">National holiday</div> -->
+							
+						</div> -->
 						</div>
 					</div>
-				</div>
-			</section>
-
+				</section>
+			</div>
 			<footer class="o-footer">
 				<div class="c-contactinfo">
 					<div class="c-contactinfo__socialmedia">
@@ -171,9 +170,7 @@
 
 					<div class="c-logo">
 						<svg class="c-logo__symbol"><use xlink:href="#logo_fastis"></use></svg>
-						<!-- <svg class="c-logo__symbol" xmlns="http://www.w3.org/2000/svg" width="28.8" height="28.8" viewBox="0 0 28.8 28.8">
-							<path id="calendar" d="M27.2,4.8H25.6V8H20.8V4.8H11.2V8H6.4V4.8H4.8A3.208,3.208,0,0,0,1.6,8V27.2a3.208,3.208,0,0,0,3.2,3.2H27.2a3.209,3.209,0,0,0,3.2-3.2V8a3.209,3.209,0,0,0-3.2-3.2Zm0,22.4H4.8V14.4H27.2ZM10.4,1.6H7.2V7.2h3.2V1.6Zm14.4,0H21.6V7.2h3.2V1.6Z" transform="translate(-1.6 -1.6)" />
-						</svg> -->
+
 						<span class="c-logo__naam">Fastis</span>
 					</div>
 				</div>

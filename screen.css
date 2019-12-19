@@ -1,0 +1,1551 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+@font-face {
+	font-family: 'Inter Web';
+	font-weight: 400;
+	src: url('../fonts/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Inter Web';
+	font-weight: 600;
+	src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+}
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+:root {
+	/*colors*/
+	--global-color-alpha-light-xx: #d6d8ff;
+	--global-color-alpha-light-x: #bdc1ff;
+	--global-color-alpha-light: #a3a8ff;
+	--global-color-alpha: #858bf7;
+	--global-color-alpha-dark: #464bb3;
+	--global-color-alpha-dark-x: #1f2380;
+	--global-color-alpha-dark-xx: #070a4d;
+
+	--global-color-alpha-dark-x-transparent: #1f238080;
+
+	--global-color-beta: #81cabf;
+	--global-color-omega: #2ac6d8;
+	--global-color-delta: #ff6969;
+	--global-color-selection: #3385ff;
+
+	--global-color-neutral-xxxxx-light: white;
+	--global-color-neutral-xxxx-light: #f5f5fa;
+	--global-color-neutral-xxx-light: #f2f2f7;
+	--global-color-neutral-xx-light: #dadae6;
+	--global-color-neutral-x-light: #bebecc;
+	--global-color-neutral-light: #a5a5b3;
+	--global-color-neutral: #898999;
+	--global-color-neutral-dark: #737380;
+	--global-color-neutral-x-dark: #5c5c66;
+	--global-color-neutral-xx-dark: #45454d;
+	--global-color-neutral-xxx-dark: #2e2e33;
+	--global-color-neutral-xxxx-dark: #17171a;
+
+	/* border variables */
+	--global-borderRadius: 12px;
+	--global-borderWidth: 2px;
+
+	/* transitions */
+	--global-transitionTiming-alpha: 0.1s ease-out;
+
+	/* Baseline settings */
+	--global-baseline: 8px;
+	--global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+	--global-whitespace-xs: calc(var(--global-baseline) / 2); /* = 4px */
+	--global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+	--global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+	--global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+	--global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+	--global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+
+	/*fontsizes: modular scale met base 16px en ratio 1.5*/
+	--global-fontsize-sm: 12px;
+	--global-fontsize: 16px;
+	--global-fontsize-md: 24px;
+	--global-fontsize-lg: 36px;
+	--global-fontsize-xl: 54px;
+
+	/*error*/
+
+	--global-color-error: #8c0015;
+	--global-input-error-boxShadowColor: #8c001580;
+	--input-border: none;
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+html {
+	font-size: var(--global-fontsize); /*16px*/
+	line-height: 1.5;
+	font-family: 'IBM Plex Sans', 'Inter Web', Helvetica, arial, sans-serif;
+	font-weight: 400;
+	color: var(--global-color-neutral-xxx-dark);
+	background-color: var(--global-color-neutral-xx-light);
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	height: 100%;
+}
+@media (prefers-color-scheme: dark) {
+	html {
+		color: var(--global-color-neutral-xx-light);
+		background-color: var(--global-color-neutral-xx-dark);
+	}
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+::-moz-selection {
+	background: var(--global-color-selection);
+	color: var(--global-color-neutral-xxxxx-light);
+	text-shadow: none;
+}
+
+::selection {
+	background: var(--global-color-selection);
+	color: var(--global-color-neutral-xxxxx-light);
+	text-shadow: none;
+}
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h1,
+h2,
+h3 {
+	font-weight: 700;
+}
+
+h1 {
+	font-size: var(--global-fontsize-xl);
+	line-height: calc(var(--global-baseline) * 6);
+	margin: 0 0 var(--global-whitespace);
+}
+
+h2 {
+	font-size: var(--global-fontsize-lg);
+	line-height: calc(var(--global-baseline) * 5);
+	margin: 0 0 var(--global-whitespace);
+}
+
+h3 {
+	font-size: var(--global-fontsize-md);
+	line-height: calc(var(--global-baseline) * 4);
+	margin: 0 0 var(--global-whitespace);
+}
+
+h4,
+h5,
+h6 {
+	font-size: var(--global-fontsize);
+	font-weight: 600;
+	line-height: calc(var(--global-baseline) * 3);
+	margin: 0 0 var(--global-whitespace);
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+	margin: 0 0 var(--global-whitespace);
+}
+
+ul,
+ol {
+	padding-left: var(--global-whitespace);
+}
+
+li ul,
+li ol {
+	margin-bottom: 0;
+}
+
+blockquote {
+	font-style: normal;
+	font-size: var(--global-fontsize-md);
+	line-height: calc(var(--global-baseline) * 6);
+	margin: 0 0 var(--global-whitespace);
+}
+
+blockquote * {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+figcaption {
+	font-weight: 400;
+	font-size: var(--global-fontsize-sm);
+	line-height: calc(var(--global-baseline) * 2);
+	margin-top: var(--global-whitespace-xxs);
+}
+
+hr {
+	border: 0;
+	height: var(--global-borderWidth);
+	background: var(--global-color-neutral-x-light);
+	margin: 0 0 var(--global-whitespace);
+}
+
+a,
+a:visited {
+	transition: all var(--global-transitionTiming-alpha);
+	color: var(--global-color-alpha);
+	outline-color: var(--global-link-BoxShadowColor);
+	outline-width: medium;
+	outline-offset: 2px;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: var(--global-color-alpha-light);
+}
+
+a:active {
+	color: var(--global-color-alpha-dark);
+}
+
+label,
+input {
+	display: block;
+}
+
+input::placeholder {
+	color: var(--color-placeholder, var(--global-color-neutral-x-light));
+}
+
+body {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*
+    Objects: Row
+    ---
+    Creates a horizontal row that stretches the viewport and adds padding around children
+*/
+
+.o-row {
+	position: relative;
+
+	padding: var(--global-whitespace) var(--global-whitespace) 0;
+}
+
+/*
+    Objects: Container
+    ---
+    Creates a horizontal container that sets de global max-width
+*/
+
+.o-container {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 800px; /* 79.5 * 16px = 1272 */
+	width: 100%;
+}
+
+/*
+    Objects: section
+    ---
+    Creates vertical whitespace between adjacent sections inside a row
+*/
+
+.o-section {
+	position: relative;
+}
+
+.o-section + .o-section {
+	padding-top: var(--global-whitespace);
+}
+
+@media (min-width: 768px) {
+	.o-section--lg + .o-section--lg,
+	.o-section--xl + .o-section--xl {
+		padding-top: var(--global-whitespace-lg);
+	}
+}
+
+@media (min-width: 992px) {
+	.o-section--xl + .o-section--xl {
+		padding-top: var(--global-whitespace-xxl);
+	}
+}
+
+/*
+    Objects: Layout
+    ---
+    The layout object provides us with a column-style layout system. This object
+    contains the basic structural elements, but classes should be complemented
+    with width utilities
+*/
+
+.o-layout {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.o-layout__item {
+	width: 100%;
+}
+
+/* gutter modifiers, these affect o-layout__item too */
+
+.o-layout--gutter {
+	margin: 0 -12px;
+}
+
+.o-layout--gutter > .o-layout__item {
+	padding: 0 12px;
+}
+
+.o-layout--gutter-sm {
+	margin: 0 -6px;
+}
+
+.o-layout--gutter-sm > .o-layout__item {
+	padding: 0 6px;
+}
+
+.o-layout--gutter-lg {
+	margin: 0 calc(var(--global-whitespace) * -1);
+}
+
+.o-layout--gutter-lg > .o-layout__item {
+	padding: 0 var(--global-whitespace);
+}
+
+.o-layout--gutter-xl {
+	margin: 0 calc(var(--global-whitespace-lg) * -1);
+}
+
+.o-layout--gutter-xl > .o-layout__item {
+	padding: 0 var(--global-whitespace-lg);
+}
+
+/* reverse horizontal row modifier */
+
+.o-layout--row-reverse {
+	flex-direction: row-reverse;
+}
+
+/* Horizontal alignment modifiers*/
+
+.o-layout--justify-start {
+	justify-content: flex-start;
+}
+
+.o-layout--justify-end {
+	justify-content: flex-end;
+}
+
+.o-layout--justify-center {
+	justify-content: center;
+}
+
+.o-layout--justify-space-around {
+	justify-content: space-around;
+}
+
+.o-layout--justify-space-evenly {
+	justify-content: space-evenly;
+}
+
+.o-layout--justify-space-between {
+	justify-content: space-between;
+}
+
+/* Vertical alignment modifiers */
+
+.o-layout--align-start {
+	align-items: flex-start;
+}
+
+.o-layout--align-end {
+	align-items: flex-end;
+}
+
+.o-layout--align-center {
+	align-items: center;
+}
+
+.o-layout--align-baseline {
+	align-items: baseline;
+}
+
+/* Vertical alignment modifiers that only work if there is one than one flex item */
+
+.o-layout--align-content-start {
+	align-content: start;
+}
+
+.o-layout--align-content-end {
+	align-content: end;
+}
+
+.o-layout--align-content-center {
+	align-content: center;
+}
+
+.o-layout--align-content-space-around {
+	align-content: space-around;
+}
+
+.o-layout--align-content-space-between {
+	align-content: space-between;
+}
+
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list {
+	list-style: none;
+	padding: 0;
+}
+
+/*
+    Object: Button reset
+    ---
+    Small button reset object
+*/
+
+.o-button-reset {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+	background: transparent;
+
+	/* inherit font & color from ancestor */
+	color: inherit;
+	font: inherit;
+
+	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+	line-height: normal;
+
+	/* Corrects font smoothing for webkit */
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+
+	/* Corrects inability to style clickable `input` types in iOS */
+	-webkit-appearance: none;
+}
+
+/*
+    Object: Hide accessible
+    ---
+    Accessibly hide any element
+*/
+
+.o-hide-accessible {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+.o-content {
+	flex: 1 0 auto;
+}
+
+/*
+    Object: header
+    ---
+    
+*/
+.o-header {
+	background-color: var(--global-color-alpha);
+
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 24px;
+}
+.o-header_landing {
+	padding: 0 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+	.o-header {
+		color: var(--global-color-neutral-xx-light);
+		background-color: var(--global-color-alpha-dark-xx);
+	}
+}
+/*
+    Object: Footer
+    ---
+    
+*/
+.o-footer {
+	padding: var(--global-whitespace-md);
+	background-color: var(--global-color-alpha);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.o-footer .c-logo {
+	padding: 0;
+}
+.o-footer .c-logo__symbol {
+	height: 40px;
+	width: 40px;
+}
+.o-footer .c-logo__naam {
+	font-weight: 700;
+}
+
+@media (min-width: 768px) {
+	.o-footer .c-logo__naam {
+		font-size: var(--global-fontsize-md);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.o-footer {
+		background-color: var(--global-color-alpha-dark-xx);
+	}
+}
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+/*
+    Component: Logo
+    ---
+    Everything logo related here
+*/
+
+.c-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: var(--global-whitespace-xl);
+
+	margin-bottom: 0;
+	padding: var(--global-whitespace-md) var(--global-whitespace-md) var(--global-whitespace);
+}
+.c-logo__naam {
+	margin-left: var(--global-whitespace-sm);
+	color: var(--global-color-alpha-dark-x);
+}
+.o-header .c-logo__symbol {
+	height: 40px;
+	width: 40px;
+	margin-right: var(--global-whitespace-sm);
+}
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+	.o-header .c-logo__symbol {
+		height: 64px;
+		width: 64px;
+	}
+}
+
+@media (min-width: 992px) {
+	.o-header .c-logo__symbol {
+		height: 80px;
+		width: 80px;
+		margin-right: var(--global-whitespace-md);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.c-logo__naam {
+		color: var(--global-color-alpha-light);
+	}
+}
+
+/*
+    Component: Headerinfo
+    ---
+    Everything logo related here
+*/
+.c-headerinfo {
+	display: flex;
+	flex-direction: column;
+	max-width: 800px;
+}
+.c-headerinfo__body {
+	/* padding: var(--global-whitespace-md) 0 var(--global-whitespace-md) var(--global-whitespace-md); */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.c-headerinfo__title {
+	text-align: center;
+	font-size: var(--global-fontsize-md); /*24px*/
+	line-height: var(--global-whitespace-lg);
+	font-weight: 600;
+	margin-bottom: var(--global-whitespace-lg);
+}
+
+.c-headerinfo__mockup {
+	border-radius: var(--borderradius-mockup, calc(var(--global-borderRadius) * 4));
+	display: flex;
+}
+
+@media (min-width: 576px) {
+	.c-headerinfo {
+		flex-direction: row;
+	}
+}
+
+/*
+    Component: Forms
+    ---
+    Everything form related here. Including input, label and button
+*/
+
+.c-form-field {
+	position: relative;
+	/* margin: var(--global-whitespace) var(--global-whitespace) var(--global-whitespace) 0; */
+	/* display: block; */
+}
+.c-form-field--option {
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+@media (min-width: 768px) {
+	.c-form {
+		display: flex;
+		justify-content: space-between;
+	}
+	.c-button-wrapper {
+		justify-content: flex-end;
+		margin-bottom: 0;
+	}
+	.c-form-field {
+		margin-right: var(--global-baseline);
+	}
+}
+@media (min-width: 992px) {
+	.c-form-field {
+		margin-right: var(--global-whitespace-md);
+	}
+}
+/*
+    Component: Label
+    ---
+    Custom label
+*/
+.c-label {
+	margin-bottom: 0;
+	font-size: var(--global-fontsize);
+
+	padding: 0 var(--global-whitespace-xs) var(--global-whitespace-xs);
+	line-height: calc(var(--global-baseline) * 3);
+	color: var(--label-color, var(--global-color-neutral-xx-dark));
+	display: flex;
+	justify-content: space-between;
+}
+@media (prefers-color-scheme: dark) {
+	.c-label {
+		--label-color: var(--global-color-alpha-light);
+	}
+}
+
+/*
+    Component: Custom input
+    ---
+    Custom input
+*/
+.c-input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	background-color: var(--global-color-neutral-xxxxx-light);
+	font-family: inherit;
+	font-size: var(--global-fontsize);
+	line-height: var(--global-whitespace); /*24px*/
+	padding: calc(var(--global-baseline) * 1.5) var(--global-whitespace-sm);
+	outline: none;
+	transition: all var(--global-transitionTiming-alpha);
+	border-radius: var(--global-borderRadius);
+	border: var(--input-border);
+}
+
+.c-input:hover {
+	box-shadow: var(--input-hover-boxShadow, 0 0 0 1px var(--global-color-alpha-dark-x));
+}
+
+.c-input:focus,
+.c-input:active {
+	box-shadow: var(--input-focus-boxShadow, 0 0 0 3px var(--global-color-alpha-dark-x-transparent), 0 0 0 1px var(--global-color-alpha-dark-x));
+}
+
+.c-input:focus::placeholder {
+	opacity: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+	.c-input:hover {
+		--input-hover-boxShadow: 0 0 0 3px var(--global-color-alpha);
+	}
+	.c-input:focus,
+	.c-input:active {
+		--input-focus-boxShadow: 0 0 4px 4px var(--global-color-alpha-light), 0 0 2px 2px var(--global-color-alpha);
+	}
+}
+/*
+    Component: Custom button
+    ---
+    Custom button
+*/
+.c-button-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: var(--global-whitespace-md);
+}
+.c-button {
+	font-weight: 600;
+	border-radius: var(--global-borderRadius);
+
+	background-color: var(--global-color-neutral-xxxxx-light);
+	color: var(--global-color-alpha);
+
+	padding: calc(var(--global-baseline) * 1.5) var(--global-whitespace-sm);
+
+	line-height: calc(var(--global-baseline) * 3);
+	margin-top: var(--global-whitespace-xs);
+	outline: none;
+	transition: all var(--global-transition-timing-alpha);
+}
+
+.c-button:hover {
+	background-color: var(--button-hover-backgroundcolor, var(--global-color-alpha-light-x));
+	color: var(--global-color-alpha-dark-x);
+	box-shadow: var(--button-hover-boxShadow, 0 0 0 2px var(--global-color-alpha-dark-x));
+}
+
+.c-button:focus {
+	color: var(--global-color-alpha-dark-x);
+	box-shadow: var(--button-focus-boxShadow, 0 0 0 3px var(--global-color-alpha-dark-x-transparent), 0 0 0 1px var(--global-color-alpha-dark-x));
+}
+
+.c-button:active {
+	background-color: var(--button-active-backgroundcolor, var(--global-color-alpha-dark-x));
+	box-shadow: none;
+	color: var(--global-color-neutral-xxxx-light);
+}
+
+@media (min-width: 768px) {
+	.c-button-wrapper {
+		justify-content: flex-end;
+		margin-bottom: 0;
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.c-button {
+		color: var(--global-color-alpha-dark-xx);
+	}
+	.c-button:hover {
+		--button-hover-backgroundcolor: var(--global-color-neutral-xxxxx-light);
+		color: var(--global-color-alpha-dark-x);
+		--button-hover-boxShadow: 0 0 0 3px var(--global-color-alpha);
+	}
+
+	.c-button:focus {
+		color: var(--global-color-alpha-dark-x);
+
+		--button-focus-boxShadow: 0 0 4px 4px var(--global-color-alpha-light), 0 0 2px 2px var(--global-color-alpha);
+	}
+
+	.c-button:active {
+		--button-active-backgroundcolor: var(--global-color-alpha);
+		box-shadow: none;
+		color: var(--global-color-neutral-xxxx-light);
+	}
+}
+
+/*
+    Component: Explanation
+    ---
+    Everything related to the explanation of the app
+*/
+
+.c-explanation {
+	text-align: center;
+}
+.c-explanation__title {
+}
+
+.c-explanation__text {
+}
+
+/*
+    Component: Founder
+    ---
+    Everything related to the presentation of the founder 
+*/
+.c-founder {
+	justify-content: space-between;
+	margin: var(--global-whitespace) 0;
+	padding: var(--global-whitespace);
+	border-radius: var(--global-borderRadius);
+	display: flex;
+	flex-direction: column;
+	background-color: var(--founder-backgroundcolor, var(--global-color-neutral-xxxxx-light));
+	box-shadow: 2px 2px 2px 2px var(--founder-boxshadowColor, var(--global-color-neutral-x-light));
+}
+.c-founder__picture-wrapper {
+	display: flex;
+	align-items: center;
+	margin-bottom: var(--global-whitespace-md); /*16px*/
+}
+.c-founder__picture {
+	border-radius: 100%;
+	width: 128px;
+	height: 128px;
+	display: flex;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+}
+.c-founder__text {
+}
+
+.c-founder__name {
+	margin-bottom: 0;
+	font-weight: 600;
+}
+@media (min-width: 768px) {
+	.c-founder {
+		flex-direction: row;
+	}
+	.c-founder__picture-wrapper {
+		margin-bottom: 0;
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.c-founder {
+		--founder-backgroundcolor: var(--global-color-neutral-x-light);
+		--founder-boxshadowColor: var(--global-color-neutral-dark);
+		color: var(--global-color-alpha-dark-xx);
+	}
+}
+/*
+    Component: Contactinfo
+    ---
+    Everything related to the contactinfo in the footer
+*/
+
+.c-contactinfo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 800px;
+	width: 100%;
+}
+.c-contactinfo__logo {
+	height: var(--global-whitespace-md);
+	width: var(--global-whitespace-md);
+	margin: var(--global-whitespace-xs);
+	background-color: var(--global-color-neutral-xxxxx-light);
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.c-contactinfo__logo-symbol {
+	fill: var(--global-color-alpha);
+
+	height: 75%;
+	width: 75%;
+}
+.c-contactinfo__socialmedia {
+	display: flex;
+}
+
+.c-contactinfo .c-logo {
+	margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+	.c-contactinfo__logo {
+		height: var(--global-whitespace);
+		width: var(--global-whitespace);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.c-contactinfo__logo-symbol {
+		fill: var(--global-color-alpha-dark-x);
+	}
+}
+
+/*
+    Component: info
+    ---
+    Everything related to the info box on the app page. Includes legend and custom select
+*/
+.c-info {
+	display: grid;
+	grid-template-rows: 80 1fr;
+	grid-gap: var(--global-whitespace-md);
+	padding: var(--global-whitespace-md);
+
+	border-radius: var(--global-borderRadius);
+	background-color: var(--info-backgroundcolor, var(--global-color-neutral-xxxxx-light));
+	/* box-shadow: 2px 2px 2px 2px rgba(46, 52, 165, 0.125), 1px 1px 1px 1px rgba(46, 52, 165, 0.2); #2e34a5; */
+	box-shadow: 2px 2px 2px 2px var(--info-boxshadowColor, var(--global-color-neutral-x-light));
+}
+
+.c-info .c-form-field {
+	margin: 0;
+}
+.c-info .c-label {
+	font-size: var(--global-fontsize);
+	line-height: calc(var(--global-baseline) * 3);
+	text-align: center;
+	padding-bottom: var(--global-whitespace-sm);
+}
+
+@media (min-width: 576px) {
+	.c-info {
+		padding: var(--global-whitespace);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.c-info {
+		--info-backgroundcolor: var(--global-color-neutral-x-light);
+		--info-boxshadowColor: var(--global-color-neutral-dark);
+		color: var(--global-color-alpha-dark-x);
+	}
+	.c-info .c-label {
+		color: var(--global-color-alpha-dark-x);
+	}
+}
+/*
+    Component: Custom Select
+    ---
+    Custom select dropdown
+*/
+
+.c-custom-select {
+	display: block;
+	position: relative;
+}
+.c-custom-select__input {
+	border-radius: var(--global-borderRadius);
+	box-shadow: 2px 2px 2px 2px rgba(46, 52, 165, 0.125), 1px 1px 1px 1px rgba(46, 52, 165, 0.2); /*#2e34a5;*/
+	border: none;
+	background-color: var(--global-color-alpha-light);
+}
+.c-custom-select__symbol {
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	pointer-events: none;
+	fill: var(--global-color-alpha-dark-xx);
+}
+
+.c-info .c-input {
+	background-color: var(--global-color-neutral-xxxxx-light);
+}
+@media (prefers-color-scheme: dark) {
+	.c-info .c-input {
+		background-color: var(--global-color-neutral-xxx-light);
+	}
+}
+
+/*
+    Component: Legend
+    ---
+    Everything related to legend
+*/
+.c-legend {
+}
+.c-legend__title {
+	font-size: var(--global-fontsize-md);
+	font-weight: 700;
+	text-align: center;
+
+	margin-bottom: var(--global-whitespace-sm);
+}
+.c-legend__body {
+	display: grid;
+	grid-template-columns: 16px 1fr;
+	grid-template-rows: repeat(3, 24px 1fr);
+	grid-row-gap: var(--global-whitespace-sm);
+	grid-column-gap: var(--global-whitespace-md);
+	justify-content: center;
+	align-items: center;
+}
+.c-box {
+	width: 16px;
+	background-color: var(--global-color-legend);
+	height: 16px;
+	display: flex;
+	align-content: center;
+}
+
+.c-legend__holidayType {
+	display: flex;
+	align-items: center;
+}
+
+.c-info .c-legend__description {
+	grid-column: span 2;
+}
+
+@media (min-width: 576px) {
+	.c-legend__body {
+		grid-template-columns: 16px 160px 1fr;
+		grid-template-rows: repeat(3, 1fr);
+		grid-gap: var(--global-whitespace-md);
+	}
+	.c-info .c-legend__description {
+		grid-column: span 1;
+	}
+}
+
+/*
+    Component: Contactinfo
+    ---
+    Everything related to the holiday specific cards
+*/
+
+.c-holiday {
+	margin: var(--global-whitespace) 0;
+	padding: var(--global-whitespace);
+
+	border-left: 10px solid var(--global-color-border);
+	border-radius: var(--global-borderRadius);
+	background-color: var(--holiday-backgroundcolor, var(--global-color-neutral-xxxxx-light));
+	box-shadow: 2px 2px 2px 2px var(--holiday-boxshadowColor, var(--global-color-neutral-x-light));
+	display: grid;
+	grid-template-rows: 24px 24px 1fr;
+	grid-template-columns: 1fr;
+	grid-gap: var(--global-whitespace-md);
+}
+
+.c-holiday__name {
+	font-weight: 700;
+}
+.c-holiday__date {
+	font-weight: 700;
+}
+
+.c-holiday__description {
+}
+@media (min-width: 576px) {
+	.c-holiday {
+		grid-template-rows: 24px 1fr;
+		grid-template-columns: 1fr 1fr;
+	}
+	.c-holiday__description {
+		grid-column: span 2;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.c-holiday {
+		--holiday-backgroundcolor: var(--global-color-neutral-x-light);
+		--holiday-boxshadowColor: var(--global-color-neutral-dark);
+		color: var(--global-color-alpha-dark-xx);
+	}
+}
+
+.moveit {
+	animation: move 1s;
+}
+
+@keyframes move {
+	from {
+		transform: translateX(-75%);
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+	padding-top: 0 !important;
+}
+
+.u-mb-clear {
+	margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+	margin-bottom: var(--global-whitespace-xs) !important;
+}
+
+.u-mb-sm {
+	margin-bottom: var(--global-whitespace-sm) !important;
+}
+
+.u-mb-md {
+	margin-bottom: var(--global-whitespace-md) !important;
+}
+
+.u-mb-lg {
+	margin-bottom: var(--global-whitespace-lg) !important;
+}
+
+.u-mb-xl {
+	margin-bottom: var(--global-whitespace-xl) !important;
+}
+
+.u-mb-xl {
+	margin-bottom: var(--global-whitespace-xl) !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-xs {
+	max-width: 27em !important;
+}
+
+.u-max-width-sm {
+	max-width: 39em !important;
+}
+
+.u-max-width-md {
+	max-width: 50em !important;
+}
+
+.u-max-width-lg {
+	max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+	max-width: none !important;
+}
+
+/*
+    Utilities: align
+    ---
+    Utility classes align text or components
+*/
+
+.u-align-text-center {
+	text-align: center;
+}
+
+.u-align-center {
+	margin: 0 auto;
+}
+
+/*
+    Utilities: text
+    Utility classes to create smaller or bigger test
+*/
+
+.u-text-sm {
+	font-size: 14px;
+}
+
+/*
+    Utility: Widths
+    ---
+    Utility classes to put specific widths onto elements
+    Will be mostly used on o-layout__item
+*/
+
+.u-width-auto {
+	width: auto !important;
+}
+
+.u-1-of-2 {
+	width: 50% !important;
+}
+
+.u-1-of-3 {
+	width: 33.3333333333% !important;
+}
+
+.u-2-of-3 {
+	width: 66.6666666667% !important;
+}
+
+.u-1-of-4 {
+	width: 25% !important;
+}
+
+.u-3-of-4 {
+	width: 75% !important;
+}
+
+.u-1-of-5 {
+	width: 20% !important;
+}
+
+.u-2-of-5 {
+	width: 40% !important;
+}
+
+.u-3-of-5 {
+	width: 60% !important;
+}
+
+.u-4-of-5 {
+	width: 80% !important;
+}
+
+.u-1-of-6 {
+	width: 16.6666666667% !important;
+}
+
+.u-5-of-6 {
+	width: 83.3333333333% !important;
+}
+
+@media (min-width: 576px) {
+	.u-1-of-2-bp1 {
+		width: 50% !important;
+	}
+	.u-1-of-3-bp1 {
+		width: 33.3333333333% !important;
+	}
+	.u-2-of-3-bp1 {
+		width: 66.6666666667% !important;
+	}
+	.u-1-of-4-bp1 {
+		width: 25% !important;
+	}
+	.u-3-of-4-bp1 {
+		width: 75% !important;
+	}
+	.u-1-of-5-bp1 {
+		width: 20% !important;
+	}
+	.u-2-of-5-bp1 {
+		width: 40% !important;
+	}
+	.u-3-of-5-bp1 {
+		width: 60% !important;
+	}
+	.u-4-of-5-bp1 {
+		width: 80% !important;
+	}
+	.u-1-of-6-bp1 {
+		width: 16.6666666667% !important;
+	}
+	.u-5-of-6-bp1 {
+		width: 83.3333333333% !important;
+	}
+}
+
+@media (min-width: 768px) {
+	.u-1-of-2-bp2 {
+		width: 50% !important;
+	}
+	.u-1-of-3-bp2 {
+		width: 33.3333333333% !important;
+	}
+	.u-2-of-3-bp2 {
+		width: 66.6666666667% !important;
+	}
+	.u-1-of-4-bp2 {
+		width: 25% !important;
+	}
+	.u-3-of-4-bp2 {
+		width: 75% !important;
+	}
+	.u-1-of-5-bp2 {
+		width: 20% !important;
+	}
+	.u-2-of-5-bp2 {
+		width: 40% !important;
+	}
+	.u-3-of-5-bp2 {
+		width: 60% !important;
+	}
+	.u-4-of-5-bp2 {
+		width: 80% !important;
+	}
+	.u-1-of-6-bp2 {
+		width: 16.6666666667% !important;
+	}
+	.u-5-of-6-bp2 {
+		width: 83.3333333333% !important;
+	}
+}
+
+@media (min-width: 992px) {
+	.u-1-of-2-bp3 {
+		width: 50% !important;
+	}
+	.u-1-of-3-bp3 {
+		width: 33.3333333333% !important;
+	}
+	.u-2-of-3-bp3 {
+		width: 66.6666666667% !important;
+	}
+	.u-1-of-4-bp3 {
+		width: 25% !important;
+	}
+	.u-3-of-4-bp3 {
+		width: 75% !important;
+	}
+	.u-1-of-5-bp3 {
+		width: 20% !important;
+	}
+	.u-2-of-5-bp3 {
+		width: 40% !important;
+	}
+	.u-3-of-5-bp3 {
+		width: 60% !important;
+	}
+	.u-4-of-5-bp3 {
+		width: 80% !important;
+	}
+	.u-1-of-6-bp3 {
+		width: 16.6666666667% !important;
+	}
+	.u-5-of-6-bp3 {
+		width: 83.3333333333% !important;
+	}
+}
+
+@media (min-width: 1200px) {
+	.u-1-of-2-bp4 {
+		width: 50% !important;
+	}
+	.u-1-of-3-bp4 {
+		width: 33.3333333333% !important;
+	}
+	.u-2-of-3-bp4 {
+		width: 66.6666666667% !important;
+	}
+	.u-1-of-4-bp4 {
+		width: 25% !important;
+	}
+	.u-3-of-4-bp4 {
+		width: 75% !important;
+	}
+	.u-1-of-5-bp4 {
+		width: 20% !important;
+	}
+	.u-2-of-5-bp4 {
+		width: 40% !important;
+	}
+	.u-3-of-5-bp4 {
+		width: 60% !important;
+	}
+	.u-4-of-5-bp4 {
+		width: 80% !important;
+	}
+	.u-1-of-6-bp4 {
+		width: 16.6666666667% !important;
+	}
+	.u-5-of-6-bp4 {
+		width: 83.3333333333% !important;
+	}
+}
+
+/*
+    Utility: Grid
+    ---
+   Utility classes to put specific column or row spans onto elements
+   
+*/
+
+/*
+    Utility: Colors
+    ---
+   Utility classes to change specific colors based on javascript 
+   
+*/
+
+.u-blue {
+	--global-color-legend: var(--global-color-omega);
+	--global-color-border: var(--global-color-omega);
+}
+
+.u-green {
+	--global-color-legend: var(--global-color-beta);
+	--global-color-border: var(--global-color-beta);
+}
+.u-red {
+	--global-color-legend: var(--global-color-delta);
+	--global-color-border: var(--global-color-delta);
+}
+
+.s-has-error {
+	--label-color: var(--global-color-error);
+	--input-border: var(--global-borderWidth) solid var(--global-color-error);
+	--input-hover-boxShadow: 0 0 3px 3px var(--global-input-error-boxShadowColor);
+	--input-focus-boxShadow: 0 0 0 3px var(--global-input-error-boxShadowColor);
+}
+
+@media (prefers-color-scheme: dark) {
+	.s-has-error {
+		--input-border: 3px solid var(--global-color-error);
+	}
+}
+
+.u-hide {
+	display: none;
+}
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Media Queries
+    ---
+    EXAMPLE Media Queries for Responsive Design.
+    These examples override the primary ('mobile first') styles.
+    USE THEM INLINE!
+*/
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in mobile first design
+*/
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+*/
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+*/
+
+/* Large devices (landscape tablets, desktops, 992px and up)
+@media (min-width: 992px) {}
+*/
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+	*,
+	*:before,
+	*:after {
+		background: transparent !important;
+		color: #000 !important;
+		/* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+	a[href]:after {
+		content: ' (' attr(href) ')';
+	}
+	abbr[title]:after {
+		content: ' (' attr(title) ')';
+	}
+	/*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+	a[href^='#']:after,
+	a[href^='javascript:']:after {
+		content: '';
+	}
+	pre {
+		white-space: pre-wrap !important;
+	}
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+	/*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+	thead {
+		display: table-header-group;
+	}
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
+}

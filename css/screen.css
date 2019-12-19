@@ -496,7 +496,14 @@ body {
 }
 
 .o-content {
+	/* flex: 1 0 auto; */
+	padding-bottom: var(--global-whitespace-xxl);
+}
+
+.o-pagecontainer {
 	flex: 1 0 auto;
+	position: relative;
+	min-height: 100vh;
 }
 
 /*
@@ -533,6 +540,9 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
 .o-footer .c-logo {
 	padding: 0;
@@ -1075,9 +1085,10 @@ body {
 	background-color: var(--holiday-backgroundcolor, var(--global-color-neutral-xxxxx-light));
 	box-shadow: 2px 2px 2px 2px var(--holiday-boxshadowColor, var(--global-color-neutral-x-light));
 	display: grid;
-	grid-template-rows: 24px 24px 1fr;
+	grid-template-rows: auto auto 1fr;
 	grid-template-columns: 1fr;
-	grid-gap: var(--global-whitespace-md);
+
+	grid-gap: var(--global-whitespace-sm) var(--global-whitespace-md);
 }
 
 .c-holiday__name {
@@ -1091,7 +1102,7 @@ body {
 }
 @media (min-width: 576px) {
 	.c-holiday {
-		grid-template-rows: 24px 1fr;
+		grid-template-rows: auto 1fr;
 		grid-template-columns: 1fr 1fr;
 	}
 	.c-holiday__description {
